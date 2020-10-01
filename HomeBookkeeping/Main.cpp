@@ -1,27 +1,46 @@
-#include"Expenses.h"
+#include"Bookkeeping.h"
 
-int main() {
-	int c;
-	
-	while (cin >> c&&c) {
-		switch (c) {
-		case 1: {
-			Expenses ex("Aplle", "Food");
-			ex.addCost(37.78);
-			Expenses ex3("Orange", "Food");
-			ex3.addCost(45.55);
-			//ex.delCost(1);
+vector<string>NameMenu = { "Учёт расходов","Учёт доходов","Вывести отчет","Выход" };
+vector<COORD> MenuCoord = { {54,13},{54,15},{54,17},{54,19},{54,21},{54,23},{54,25} };
+vector<string>ExpCatMenu = { "Продукты","Промтовары","Транспорт","Аптеки","Комунальные","Прочие","Назад" };
+vector<string>RepCatExp = { "Продукты","Промтовары","Транспорт","Аптеки","Комунальные","Прочие" };
+vector<string>RepCatInc = { "Зарплата","Прочие" };
+vector<string>IncCatMenu = { "Зарплата","Прочие","Назад" };
+vector<string>RepCatMenu = { "Расходы","Доходы","Назад" };
+vector<string>ReportMenu = { "Отчет за день","Месячный отчет","Годовой отчет","Отчет за период","Назад" };
+vector<string>AccOperation = { "Добавить","Удалить","Отобразить","Назад" };
+
+
+
+int main() 
+{
+	Bookkeeping Home;
+	Home.setCoordMenu(MenuCoord);
+	Home.settingReport(RepCatExp, EXPENSES);
+	Home.settingReport(RepCatInc, INCOME);
+
+	while (true)
+	{
+		Home.setItemMenu(NameMenu);
+		switch (Home.choiceMenu())
+		{
+		case AccountingExpenses:
+		{
+			Home.choiceOperationExp(ExpCatMenu, AccOperation);
 			break;
 		}
-		case 2: {
-			Expenses ex2("Poroshock", "Prom");
-			ex2.addCost(66.25);
-			Expenses ex4("Fary", "Prom");
-			ex4.addCost(74.42);
-			//ex2.delCost(1);
+		case AccountingIncome:
+		{
+			Home.choiceOperationInc(IncCatMenu, AccOperation);
 			break;
 		}
+		case OutputReport:
+		{
+			Home.choiceReport(RepCatMenu, ReportMenu);
+			break;
+		}
+		case Exit:return 0;
+
 		}
 	}
-	return 0;
 }

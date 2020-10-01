@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -139,13 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Expenses.h" />
-    <ClInclude Include="Handler.h" />
+    <ClInclude Include="Accounting.h" />
+    <ClInclude Include="Editor.h" />
+    <ClInclude Include="GlobalDate.h" />
+    <ClInclude Include="Bookkeeping.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="PrototypeExpenses.h" />
+    <ClInclude Include="PrototypeIncome.h" />
+    <ClInclude Include="PrototypeReport.h" />
+    <ClInclude Include="Report.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Expenses.cpp" />
-    <ClCompile Include="Handler.cpp" />
+    <ClCompile Include="Accounting.cpp" />
+    <ClCompile Include="Bookkeeping.cpp" />
+    <ClCompile Include="Editor.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="PrototypeExpenses.cpp" />
+    <ClCompile Include="PrototypeIncome.cpp" />
+    <ClCompile Include="PrototypeReport.cpp" />
+    <ClCompile Include="Report.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
