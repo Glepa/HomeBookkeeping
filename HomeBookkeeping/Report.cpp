@@ -1,5 +1,3 @@
-#include<io.h>
-#include<direct.h>
 #include "Report.h"
 
 Report::Report(const string name_)
@@ -93,13 +91,16 @@ void Report::SetCategoryReport(vector<string> catRep)
 
 void Report::showReport()
 {
+    cout.fill(' ');
     for (pair<string,double> par: report)
     {
-        cout << endl << par.first << ":   " << par.second << " руб.";
+       
+        cout << endl<<"  " << setw(5) << par.first 
+            <<setw(30 - par.first.size())<< par.second << " руб.";
         par.first.clear();
         par.second = 0;
     }
-    cout << "\n\n Итого: " << total;
+    cout << "\n\n   Итого: " << total;
 }
 
 Report::~Report()

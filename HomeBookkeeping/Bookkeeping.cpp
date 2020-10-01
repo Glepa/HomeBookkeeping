@@ -106,7 +106,7 @@ void Bookkeeping::EnterExpenses(vector<string> CatNameMenu)
 		Expenses->writeData(type, cost);
 		system("cls");
 		Expenses->show();
-		cout << "\n \"Enter\" - Продолжить" << setw(10) << "\"Esc\" - Назад";
+		cout << "\n\n \"Enter\" - Продолжить" << setw(10) << "\"Esc\" - Назад";
 		int button = 0;
 		while (button != Enter)
 		{
@@ -142,7 +142,7 @@ void Bookkeeping::EnterIncome(vector<string> CatNameMenu)
 		Income->writeData(type, cost);
 		system("cls");
 		Income->show();
-		cout << "\n \"Enter\" - Продолжить" << setw(10) << "\"Esc\" - Назад";
+		cout << "\n\n \"Enter\" - Продолжить" << setw(10) << "\"Esc\" - Назад";
 		int button = 0;
 		while (button != Enter)
 		{
@@ -163,7 +163,7 @@ void Bookkeeping::deleteData(string name_)
 	if (!date.day || !date.month || !date.year)return;
 	editor->delData(date,name_);
 	int button = 0;
-	cout << "\n\"Enter\" - Продолжить";
+	cout << "\n\n\"Enter\" - Продолжить";
 	while (button != Enter)
 	{
 		button = _getch();
@@ -177,7 +177,7 @@ void Bookkeeping::ShowData(string name_)
 	if (!date.day || !date.month || !date.year)return;
 	editor->ShowData(date, name_);
 	int button = 0;
-	cout << "\n\"Enter\" - Продолжить";
+	cout << "\n\n\"Enter\" - Продолжить";
 	while (button != Enter)
 	{
 		button = _getch();
@@ -196,7 +196,7 @@ void Bookkeeping::ShowReport(vector<string> ReportMenu,CatReport CatRep)
 		{
 			date = menu->EnterDate();
 			cout << "\n Дневной отчет за " << date.day << '/';
-			cout << date.month << '/' << date.year << ':';
+			cout << date.month << '/' << date.year << ":\n";
 			if (!date.day || !date.month || !date.year)
 			{
 				return;
@@ -208,7 +208,7 @@ void Bookkeeping::ShowReport(vector<string> ReportMenu,CatReport CatRep)
 		case MonthRep:
 		{
 			cout << "\n Месячный отчет за ";
-			cout << date.month << '/' << date.year << ':';
+			cout << date.month << '/' << date.year << ":\n";
 			date = menu->EnterMonth();
 			if (!date.month || !date.year) 
 			{
@@ -225,7 +225,7 @@ void Bookkeeping::ShowReport(vector<string> ReportMenu,CatReport CatRep)
 			{
 				return;
 			}
-			cout << "\n Годовой отчет за " << date.year << "год:";
+			cout << "\n Годовой отчет за " << date.year << " год:\n";
 			report.YearReport(date);
 			report.showReport();
 			break;
@@ -241,7 +241,7 @@ void Bookkeeping::ShowReport(vector<string> ReportMenu,CatReport CatRep)
 			}
 			cout << "\n Отчет за период с " << Start.day << '/';
 			cout << Start.month << '/' << Start.year << "по ";
-			cout << Finish.day << '/' << Finish.month << '/' << Finish.year << ':';
+			cout << Finish.day << '/' << Finish.month << '/' << Finish.year << ":\n";
 			Finish = menu->EnterDate();
 			if (!Finish.day || !Finish.month || !Finish.year) 
 			{
@@ -253,7 +253,7 @@ void Bookkeeping::ShowReport(vector<string> ReportMenu,CatReport CatRep)
 		}
 		case ExitRep: return;
 		}
-		cout << "\n \"Enter\" - Продолжить";
+		cout << "\n\n \"Enter\" - Продолжить";
 		switch (_getch())
 		{
 		case Enter:break;

@@ -3,6 +3,7 @@
 #include<fstream>
 #include<vector>
 #include<string>
+#include<iomanip>
 #include<map>
 #include<direct.h>
 #include"GlobalDate.h"

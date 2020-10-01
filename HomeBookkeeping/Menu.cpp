@@ -14,7 +14,7 @@ Menu::Menu(string nameProg)
 	hin = GetStdHandle(STD_INPUT_HANDLE);
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	SetConsoleDisplayMode(hout, 2, 0);
+	SetConsoleDisplayMode(hout, 1, 0);
 	GetCurrentConsoleFontEx(hout, TRUE, &font);
 	GetConsoleCursorInfo(hout, &cursor);
 	font.cbSize = sizeof(font);
